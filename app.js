@@ -1,5 +1,6 @@
 let apiData;
 const countryList = document.querySelector("#countriesList")
+const submit = document.getElementById("submit")
 
 async function setUp(){
     fetchCountries();
@@ -26,7 +27,20 @@ function createNewCountryElement(country){
   
 }
 
-const submitButton = document.querySelector('#submit');
 
+submit.addEventListener("click", event  => {
+    const newItem = document.getElementById("filter").value;
+    console.log(newItem);
+})
 
+//if statement
 
+// function filterItems(arr, query){
+//     return arr.filter((el) =>
+//     el.toLowerCase().includes(query.toLowerCase()));
+// }
+
+// console.log(countryList)
+
+// filter = new country 
+// enter = submit
