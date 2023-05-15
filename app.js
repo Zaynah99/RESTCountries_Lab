@@ -1,8 +1,14 @@
+let apiData;
+const countryList = document.querySelector("#countriesList")
+
 async function setUp(){
     fetchCountries();
-    const apiData =  await fetchCountries();
+    countryList.innerHTML = "";
+    apiData =  await fetchCountries();
+    apiData.map(country => {
+        createNewCountryElement(country);
+    })
 }
-
 
 const fetchCountries = async () => {
     const countryResponse = await fetch ("https://restcountries.com/v3.1/all");
@@ -14,11 +20,13 @@ const fetchCountries = async () => {
 setUp();
 
 function createNewCountryElement(country){
-   const countryList = document.querySelector("#countriesList")
    const newListItem = document.createElement("li")
-   newListItem.innerText = `${country.name.common}` //interpolation
+   newListItem.innerText = `${country.name.common} population: ${country.population}` //interpolation using $`
    countryList.appendChild(newListItem);
+  
 }
+
+
 
 
 
