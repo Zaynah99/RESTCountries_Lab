@@ -26,7 +26,7 @@ function createNewCountryElement(country){
   
 }
 
-
+const submitButton = document.querySelector('#submit');
 
 
 
